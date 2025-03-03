@@ -707,6 +707,15 @@ export const actionChangeFontSize = register({
         )}
         onChange={(value) => updateData(value)}
       />
+      <input
+        type="text"
+        onChange={(event) => {
+          if (event.target.value) updateData(event.target.value);
+        }}
+        style={{
+          marginTop: 4,
+        }}
+      />
     </fieldset>
   ),
 });
