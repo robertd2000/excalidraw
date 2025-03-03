@@ -33,6 +33,7 @@ import type Scene from "../scene/Scene";
 import type { ValueOf } from "../utility-types";
 import { charWidth } from "../element/textMeasurements";
 import { TimesNewRomanRegularFontFaces } from "./TimesNewRoman";
+import { ArialFontFaces } from "./Arial";
 
 export class Fonts {
   // it's ok to track fonts across multiple instances only once, so let's use
@@ -383,7 +384,9 @@ export class Fonts {
     init("Lilita One", ...LilitaFontFaces);
     init("Nunito", ...NunitoFontFaces);
     init("Virgil", ...VirgilFontFaces);
+    // new fonts
     init("Times New Roman", ...TimesNewRomanRegularFontFaces);
+    init("Arial", ...ArialFontFaces);
 
     // fallback font faces
     init(CJK_HAND_DRAWN_FALLBACK_FONT, ...XiaolaiFontFaces);

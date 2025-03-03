@@ -137,7 +137,9 @@ export const FONT_FAMILY = {
   "Lilita One": 7,
   "Comic Shanns": 8,
   "Liberation Sans": 9,
+  // new fonts
   "Times New Roman": 10,
+  Arial: 11,
 };
 
 export const FONT_FAMILY_FALLBACKS = {
