@@ -140,6 +140,7 @@ export const FONT_FAMILY = {
   // new fonts
   "Times New Roman": 10,
   Arial: 11,
+  Verdana: 12,
 };
 
 export const FONT_FAMILY_FALLBACKS = {

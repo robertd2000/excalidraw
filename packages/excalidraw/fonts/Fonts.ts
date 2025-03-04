@@ -34,6 +34,7 @@ import type { ValueOf } from "../utility-types";
 import { charWidth } from "../element/textMeasurements";
 import { TimesNewRomanRegularFontFaces } from "./TimesNewRoman";
 import { ArialFontFaces } from "./Arial";
+import { VerdanaFontFaces } from "./Verdana";
 
 export class Fonts {
   // it's ok to track fonts across multiple instances only once, so let's use
@@ -387,6 +388,7 @@ export class Fonts {
     // new fonts
     init("Times New Roman", ...TimesNewRomanRegularFontFaces);
     init("Arial", ...ArialFontFaces);
+    init("Verdana", ...VerdanaFontFaces);
 
     // fallback font faces
     init(CJK_HAND_DRAWN_FALLBACK_FONT, ...XiaolaiFontFaces);
