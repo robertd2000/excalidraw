@@ -647,77 +647,78 @@ export const actionChangeFontSize = register({
   perform: (elements, appState, value, app) => {
     return changeFontSize(elements, appState, app, () => value, value);
   },
-  PanelComponent: ({ elements, appState, updateData, app }) => (
-    <fieldset>
-      <legend>{t("labels.fontSize")}</legend>
-      <ButtonIconSelect
-        group="font-size"
-        options={[
-          {
-            value: 16,
-            text: t("labels.small"),
-            icon: FontSizeSmallIcon,
-            testId: "fontSize-small",
-          },
-          {
-            value: 20,
-            text: t("labels.medium"),
-            icon: FontSizeMediumIcon,
-            testId: "fontSize-medium",
-          },
-          {
-            value: 28,
-            text: t("labels.large"),
-            icon: FontSizeLargeIcon,
-            testId: "fontSize-large",
-          },
-          {
-            value: 36,
-            text: t("labels.veryLarge"),
-            icon: FontSizeExtraLargeIcon,
-            testId: "fontSize-veryLarge",
-          },
-        ]}
-        value={getFormValue(
-          elements,
-          appState,
-          (element) => {
-            if (isTextElement(element)) {
-              return element.fontSize;
-            }
-            const boundTextElement = getBoundTextElement(
-              element,
-              app.scene.getNonDeletedElementsMap(),
-            );
-            if (boundTextElement) {
-              return boundTextElement.fontSize;
-            }
-            return null;
-          },
-          (element) =>
-            isTextElement(element) ||
-            getBoundTextElement(
-              element,
-              app.scene.getNonDeletedElementsMap(),
-            ) !== null,
-          (hasSelection) =>
-            hasSelection
-              ? null
-              : appState.currentItemFontSize || DEFAULT_FONT_SIZE,
-        )}
-        onChange={(value) => updateData(value)}
-      />
-      <input
-        type="text"
-        onChange={(event) => {
-          if (event.target.value) updateData(event.target.value);
-        }}
-        style={{
-          marginTop: 4,
-        }}
-      />
-    </fieldset>
-  ),
+  PanelComponent: ({ elements, appState, updateData, app }) => {
+    const value = getFormValue(
+      elements,
+      appState,
+      (element) => {
+        if (isTextElement(element)) {
+          return element.fontSize;
+        }
+        const boundTextElement = getBoundTextElement(
+          element,
+          app.scene.getNonDeletedElementsMap(),
+        );
+        if (boundTextElement) {
+          return boundTextElement.fontSize;
+        }
+        return null;
+      },
+      (element) =>
+        isTextElement(element) ||
+        getBoundTextElement(element, app.scene.getNonDeletedElementsMap()) !==
+          null,
+      (hasSelection) =>
+        hasSelection ? null : appState.currentItemFontSize || DEFAULT_FONT_SIZE,
+    );
+
+    return (
+      <fieldset>
+        <legend>{t("labels.fontSize")}</legend>
+        <ButtonIconSelect
+          group="font-size"
+          options={[
+            {
+              value: 16,
+              text: t("labels.small"),
+              icon: FontSizeSmallIcon,
+              testId: "fontSize-small",
+            },
+            {
+              value: 20,
+              text: t("labels.medium"),
+              icon: FontSizeMediumIcon,
+              testId: "fontSize-medium",
+            },
+            {
+              value: 28,
+              text: t("labels.large"),
+              icon: FontSizeLargeIcon,
+              testId: "fontSize-large",
+            },
+            {
+              value: 36,
+              text: t("labels.veryLarge"),
+              icon: FontSizeExtraLargeIcon,
+              testId: "fontSize-veryLarge",
+            },
+          ]}
+          value={value}
+          onChange={(value) => updateData(value)}
+        />
+        <input
+          type="text"
+          value={value as number}
+          onChange={(event) => {
+            if (event.target.value) updateData(event.target.value);
+          }}
+          style={{
+            marginTop: 4,
+          }}
+        />
+      </fieldset>
+    );
+  },
 });
 
 export const actionDecreaseFontSize = register({
