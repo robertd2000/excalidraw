@@ -547,6 +547,7 @@ body.excalidraw-cursor-resize * {
   }
 
   input[type="text"],
+  input[type="number"],
   textarea:not(.excalidraw-wysiwyg) {
     color: var(--text-primary-color);
     border: 1.5px solid var(--input-border-color);
