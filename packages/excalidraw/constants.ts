@@ -142,6 +142,7 @@ export const FONT_FAMILY = {
   Arial: 11,
   Verdana: 12,
   Georgia: 13,
+  Roboto: 14,
 };
 
 export const FONT_FAMILY_FALLBACKS = {
