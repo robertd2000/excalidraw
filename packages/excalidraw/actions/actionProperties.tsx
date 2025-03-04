@@ -707,13 +707,13 @@ export const actionChangeFontSize = register({
           onChange={(value) => updateData(value)}
         />
         <input
-          type="text"
+          type="number"
           value={value as number}
           onChange={(event) => {
             if (event.target.value) updateData(event.target.value);
           }}
           style={{
-            marginTop: 4,
+            marginTop: 6,
           }}
         />
       </fieldset>
