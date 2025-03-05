@@ -143,6 +143,7 @@ export const FONT_FAMILY = {
   Verdana: 12,
   Georgia: 13,
   Roboto: 14,
+  "OpenSans-Regular": 15,
 };
 
 export const FONT_FAMILY_FALLBACKS = {
