@@ -37,6 +37,7 @@ import { ArialFontFaces } from "./Arial";
 import { VerdanaFontFaces } from "./Verdana";
 import { GeorgiaFontFaces } from "./Georgia";
 import { RobotoFontFaces } from "./Roboto";
+import { OpenSansRegularFaces } from "./OpenSansRegular";
 
 export class Fonts {
   // it's ok to track fonts across multiple instances only once, so let's use
@@ -393,6 +394,7 @@ export class Fonts {
     init("Verdana", ...VerdanaFontFaces);
     init("Georgia", ...GeorgiaFontFaces);
     init("Roboto", ...RobotoFontFaces);
+    init("OpenSans-Regular", ...OpenSansRegularFaces);
 
     // fallback font faces
     init(CJK_HAND_DRAWN_FALLBACK_FONT, ...XiaolaiFontFaces);
